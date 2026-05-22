@@ -3,7 +3,7 @@ import Foundation
 
 // MARK: - Models
 
-struct GitHubUser: Decodable {
+struct GitHubUser: Decodable, Equatable {
     let login: String
     let avatarUrl: String
     enum CodingKeys: String, CodingKey {
@@ -77,6 +77,14 @@ final class GitHubService: ObservableObject {
 
     init() {
         token = UserDefaults.standard.string(forKey: tokenKey) ?? ""
+        if !token.isEmpty {
+            Task { await silentAuthenticate() }
+        }
+    }
+
+    private func silentAuthenticate() async {
+        guard !token.isEmpty, user == nil else { return }
+        user = try? await apiGet("https://api.github.com/user")
     }
 
     // MARK: - gh CLI
@@ -133,11 +141,10 @@ final class GitHubService: ObservableObject {
         isPolling = true
         pollTask = Task {
             while !Task.isCancelled {
-                try? await Task.sleep(for: .seconds(interval))
-                guard !Task.isCancelled else { break }
                 if await pollToken(deviceCode: deviceCode, interval: interval) { break }
+                try? await Task.sleep(for: .seconds(interval))
             }
-            await MainActor.run { isPolling = false }
+            isPolling = false
         }
     }
 

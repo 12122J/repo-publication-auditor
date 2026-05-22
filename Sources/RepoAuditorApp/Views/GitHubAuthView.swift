@@ -140,6 +140,10 @@ struct GitHubAuthView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(nsColor: .windowBackgroundColor))
+        .onChange(of: github.user) { _, user in
+            guard user != nil else { return }
+            appVM.phase = .repoPicker
+        }
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button { appVM.phase = .welcome } label: {

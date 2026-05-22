@@ -40,7 +40,7 @@ struct DeviceCodeResponse: Decodable {
     let deviceCode: String
     let userCode: String
     let verificationUri: String
-    let verificationUriComplete: String
+    let verificationUriComplete: String?
     let expiresIn: Int
     let interval: Int
     enum CodingKeys: String, CodingKey {
@@ -51,6 +51,7 @@ struct DeviceCodeResponse: Decodable {
         case expiresIn = "expires_in"
         case interval = "interval"
     }
+    var openURL: String { verificationUriComplete ?? verificationUri }
 }
 
 // MARK: - Service
@@ -60,7 +61,7 @@ final class GitHubService: ObservableObject {
     // Replace with your GitHub OAuth App client_id.
     // Create one at https://github.com/settings/developers → New OAuth App
     // Callback URL can be anything (http://localhost) since we use device flow.
-    static let clientID = "Ov23liQHhvvILYqnRBb3"
+    static let clientID = "Ov23liPRlGXzlSLCga6W"
 
     @Published var token: String = ""
     @Published var user: GitHubUser?
@@ -116,7 +117,7 @@ final class GitHubService: ObservableObject {
         do {
             let response = try await requestDeviceCode()
             deviceCode = response
-            if let url = URL(string: response.verificationUriComplete) {
+            if let url = URL(string: response.openURL) {
                 NSWorkspace.shared.open(url)
             }
             startPolling(deviceCode: response.deviceCode, interval: response.interval)

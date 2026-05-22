@@ -43,7 +43,7 @@ struct GitHubAuthView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 6))
 
                             Button {
-                                if let url = URL(string: code.verificationUriComplete) {
+                                if let url = URL(string: code.openURL) {
                                     NSWorkspace.shared.open(url)
                                 }
                             } label: {

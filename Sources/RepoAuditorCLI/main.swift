@@ -6,17 +6,19 @@ struct CLIOptions {
     var outputPath: String?
     var scanHistory = true
     var failOn: Severity?
+    var pathWasSet = false
 }
 
 func printUsage() {
     print("""
     Usage:
-      repo-auditor [path] [--output OPEN_SOURCE_AUDIT.md] [--no-history] [--fail-on high|medium|low]
+      repo-auditor [path] [--output OPEN_SOURCE_AUDIT.md] [--no-history] [--fail-on high|medium|low|info]
 
     Examples:
       repo-auditor .
       repo-auditor ~/Projects/private-repo --output OPEN_SOURCE_AUDIT.md
       repo-auditor . --no-history
+      repo-auditor . --fail-on high
     """)
 }
 
@@ -52,7 +54,11 @@ func parseOptions(_ arguments: [String]) throws -> CLIOptions {
             if argument.hasPrefix("-") {
                 throw CLIError.message("Unknown option: \(argument)")
             }
+            if options.pathWasSet {
+                throw CLIError.message("Unexpected argument '\(argument)' — only one path is accepted")
+            }
             options.path = argument
+            options.pathWasSet = true
         }
 
         index += 1

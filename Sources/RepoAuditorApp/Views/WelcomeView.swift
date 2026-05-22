@@ -17,9 +17,10 @@ struct WelcomeView: View {
 
                 VStack(spacing: 24) {
                     // Header
-                    VStack(spacing: 5) {
-                        Text("Repo Auditor")
-                            .font(.system(size: 18, weight: .semibold))
+                    VStack(spacing: 8) {
+                        Text("REPO AUDITOR")
+                            .font(.custom("Coral Pixels", size: 28))
+                            .foregroundStyle(Color(nsColor: .systemOrange))
                         Text("Audit before you make a repository public")
                             .font(.callout)
                             .foregroundStyle(.secondary)

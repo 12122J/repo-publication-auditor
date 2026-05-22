@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="Repo Auditor" width="400"/>
+  <img src="assets/logo.png" alt="Repo Auditor" width="400"/>
   <br/><br/>
   <strong>Catch what you forgot before the world can see it.</strong>
   <br/><br/>

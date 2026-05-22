@@ -23,8 +23,10 @@ build() {
 
     rm -rf "$BUNDLE"
     mkdir -p "$BUNDLE/Contents/MacOS"
+    mkdir -p "$BUNDLE/Contents/Resources"
     cp "$BIN_DIR/$PRODUCT" "$BINARY"
     chmod +x "$BINARY"
+    cp "$ROOT/assets/CoralPixels.ttf" "$BUNDLE/Contents/Resources/"
 
     cat > "$BUNDLE/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>

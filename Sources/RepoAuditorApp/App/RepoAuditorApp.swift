@@ -1,9 +1,16 @@
+import CoreText
 import SwiftUI
 
 @main
 struct RepoAuditorApp: App {
     @StateObject private var appVM = AppViewModel()
     @StateObject private var github = GitHubService()
+
+    init() {
+        if let url = Bundle.main.url(forResource: "CoralPixels", withExtension: "ttf") {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+    }
 
     var body: some Scene {
         WindowGroup {

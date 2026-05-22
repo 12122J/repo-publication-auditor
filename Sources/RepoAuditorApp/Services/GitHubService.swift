@@ -114,20 +114,41 @@ final class GitHubService: ObservableObject {
         isLoading = true; error = nil
         defer { isLoading = false }
         do {
-            let response = try await postForm(
-                "https://github.com/login/device/code",
-                body: "client_id=\(Self.clientID)&scope=repo",
-                type: DeviceCodeResponse.self
-            )
+            let response = try await requestDeviceCode()
             deviceCode = response
-            // Open browser to the complete URI (pre-fills the user code)
             if let url = URL(string: response.verificationUriComplete) {
                 NSWorkspace.shared.open(url)
             }
             startPolling(deviceCode: response.deviceCode, interval: response.interval)
         } catch {
-            self.error = "Failed to start login: \(error.localizedDescription)"
+            self.error = error.localizedDescription
         }
+    }
+
+    private func requestDeviceCode() async throws -> DeviceCodeResponse {
+        guard let url = URL(string: "https://github.com/login/device/code") else { throw URLError(.badURL) }
+        var req = URLRequest(url: url)
+        req.httpMethod = "POST"
+        req.httpBody = "client_id=\(Self.clientID)&scope=repo".data(using: .utf8)
+        req.setValue("application/json", forHTTPHeaderField: "Accept")
+        req.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        let (data, _) = try await URLSession.shared.data(for: req)
+        // GitHub returns {"error":"…","error_description":"…"} when device flow is
+        // not enabled or the client_id is wrong — surface that instead of a decode crash.
+        if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let errCode = json["error"] as? String {
+            let desc: String
+            switch errCode {
+            case "Not Found":
+                desc = "OAuth App not found. Go to github.com/settings/developers, create an OAuth App, enable Device Flow, and update the client_id in GitHubService.swift."
+            case "not_supported":
+                desc = "Device Flow is not enabled for this OAuth App. Go to github.com/settings/developers, open the app, and tick \"Enable Device Flow\"."
+            default:
+                desc = json["error_description"] as? String ?? errCode
+            }
+            throw NSError(domain: "GitHub", code: 0, userInfo: [NSLocalizedDescriptionKey: desc])
+        }
+        return try JSONDecoder().decode(DeviceCodeResponse.self, from: data)
     }
 
     func cancelDeviceFlow() {

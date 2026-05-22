@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <filter id="ws">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="600" rx="12" fill="#1c1c1e" filter="url(#ws)"/>
+
+  <!-- Title bar -->
+  <rect width="900" height="40" rx="12" fill="#242427"/>
+  <rect y="28" width="900" height="12" fill="#242427"/>
+  <line x1="0" y1="40" x2="900" y2="40" stroke="#38383c" stroke-width="1"/>
+
+  <circle cx="20" cy="20" r="5.5" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="5.5" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="5.5" fill="#28c840"/>
+  <text x="82" y="25" font-family="-apple-system,BlinkMacSystemFont" font-size="14" fill="#8e8e93">‹</text>
+  <text x="620" y="25" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#8e8e93">↻  Re-run</text>
+  <text x="690" y="25" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#8e8e93">↑  Export</text>
+
+  <!-- ── Sidebar (230px) ── -->
+  <rect x="0" y="40" width="230" height="560" fill="#1e1e20"/>
+  <line x1="230" y1="40" x2="230" y2="600" stroke="#38383c" stroke-width="1"/>
+
+  <!-- Repo info section -->
+  <text x="16" y="64" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#f2f2f7" font-weight="600">api-gateway</text>
+  <text x="16" y="78" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10" fill="#48484a">5 findings</text>
+
+  <text x="16" y="102" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">REPOSITORY</text>
+  <text x="16" y="118" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#ebebf5" font-weight="500">api-gateway</text>
+  <text x="16" y="131" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="9" fill="#48484a">/Users/dev/Projects/api-…</text>
+
+  <!-- Summary section -->
+  <text x="16" y="155" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">SUMMARY</text>
+  <circle cx="26" cy="170" r="3" fill="#ff3b30"/>
+  <text x="35" y="174" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#ebebf5">High</text>
+  <text x="210" y="174" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="11" fill="#ebebf5">2</text>
+
+  <circle cx="26" cy="189" r="3" fill="#ff9500"/>
+  <text x="35" y="193" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#ebebf5">Medium</text>
+  <text x="210" y="193" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="11" fill="#ebebf5">2</text>
+
+  <circle cx="26" cy="208" r="3" fill="#007aff"/>
+  <text x="35" y="212" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#ebebf5">Low</text>
+  <text x="210" y="212" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="11" fill="#8e8e93">1</text>
+
+  <circle cx="26" cy="227" r="3" fill="#34c759"/>
+  <text x="35" y="231" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#ebebf5">Info</text>
+  <text x="210" y="231" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="11" fill="#8e8e93">0</text>
+
+  <!-- Categories section -->
+  <text x="16" y="255" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">CATEGORIES</text>
+
+  <text x="16" y="272" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#8e8e93">All findings</text>
+  <text x="210" y="272" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="10" fill="#636366">5</text>
+
+  <text x="16" y="290" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#8e8e93">Secrets</text>
+  <text x="210" y="290" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="10" fill="#636366">2</text>
+
+  <text x="16" y="308" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#8e8e93">Infrastructure</text>
+  <text x="210" y="308" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="10" fill="#636366">2</text>
+
+  <text x="16" y="326" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12" fill="#8e8e93">CI / CD</text>
+  <text x="210" y="326" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="10" fill="#636366">1</text>
+
+  <!-- Findings section -->
+  <text x="16" y="351" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">FINDINGS (5)</text>
+
+  <circle cx="24" cy="367" r="2.5" fill="#ff3b30"/>
+  <text x="31" y="371" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#ebebf5">AWS secret key in .env</text>
+
+  <!-- selected row -->
+  <rect x="6" y="378" width="218" height="20" rx="4" fill="#007aff" fill-opacity="0.2"/>
+  <circle cx="24" cy="388" r="2.5" fill="#ff3b30"/>
+  <text x="31" y="392" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#007aff">AWS key in git history</text>
+
+  <circle cx="24" cy="408" r="2.5" fill="#ff9500"/>
+  <text x="31" y="412" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#ebebf5">Private IP in config</text>
+
+  <circle cx="24" cy="427" r="2.5" fill="#ff9500"/>
+  <text x="31" y="431" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#ebebf5">Deploy target exposed</text>
+
+  <circle cx="24" cy="446" r="2.5" fill="#007aff"/>
+  <text x="31" y="450" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#ebebf5">No CI workflow found</text>
+
+  <!-- ── Detail Panel ── -->
+  <rect x="231" y="40" width="669" height="560" fill="#1c1c1e"/>
+
+  <!-- Detail nav row -->
+  <text x="250" y="65" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#007aff">‹ Back</text>
+  <text x="870" y="65" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#48484a">Secrets</text>
+  <line x1="231" y1="76" x2="900" y2="76" stroke="#38383c" stroke-width="1"/>
+
+  <!-- Severity badge + title -->
+  <circle cx="254" cy="103" r="3.5" fill="#ff3b30"/>
+  <text x="262" y="107" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="10" fill="#ff3b30" font-weight="600" letter-spacing="0.8">HIGH</text>
+  <text x="250" y="133" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display'" font-size="18" fill="#f2f2f7" font-weight="600">AWS access key found in git history</text>
+
+  <!-- Location block -->
+  <text x="250" y="168" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">LOCATION</text>
+  <rect x="250" y="176" width="620" height="38" rx="6" fill="#2c2c2e" fill-opacity="0.7"/>
+  <rect x="250" y="176" width="620" height="38" rx="6" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="263" y="199" font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" font-size="12" fill="#ebebf5">commit a3f2b9c4 → .env (deleted)</text>
+
+  <!-- Details block -->
+  <text x="250" y="237" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">DETAILS</text>
+  <text x="250" y="256" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#ebebf5">An AWS access key ID matching the pattern AKIA[A-Z0-9]{16} was found in</text>
+  <text x="250" y="274" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#ebebf5">commit a3f2b9c4. The file was later deleted, but it remains accessible in git</text>
+  <text x="250" y="292" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#ebebf5">history. Anyone who clones this repo can recover it with a single command.</text>
+  <text x="250" y="318" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#ebebf5">Key prefix (last shown before deletion): <tspan font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" fill="#ff9500">AKIA••••••••••••XXYZ</tspan></text>
+
+  <!-- Remediation block -->
+  <text x="250" y="354" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="9" fill="#636366" font-weight="600" letter-spacing="0.6">REMEDIATION</text>
+  <rect x="250" y="362" width="620" height="104" rx="6" fill="#2c2c2e" fill-opacity="0.7"/>
+  <rect x="250" y="362" width="620" height="104" rx="6" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <text x="265" y="383" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12.5" fill="#ebebf5">1.  Revoke the key in the AWS IAM console immediately — even after</text>
+  <text x="265" y="401" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12.5" fill="#ebebf5">    you rewrite history the key may already have been harvested.</text>
+  <text x="265" y="422" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12.5" fill="#ebebf5">2.  Rewrite history with <tspan font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" fill="#ff9500">git filter-repo --path .env --invert-paths</tspan></text>
+  <text x="265" y="440" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12.5" fill="#ebebf5">3.  Add <tspan font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" fill="#ff9500">.env</tspan> to <tspan font-family="-apple-system,BlinkMacSystemFont,'SF Mono',monospace" fill="#ff9500">.gitignore</tspan> before creating the new key.</text>
+  <text x="265" y="458" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12.5" fill="#ebebf5">4.  Store secrets in environment variables or a secrets manager.</text>
+
+  <!-- Pagination hint -->
+  <text x="250" y="500" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#48484a">‹ AWS secret key in .env</text>
+  <text x="870" y="500" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#48484a">Private IP in config ›</text>
+</svg>

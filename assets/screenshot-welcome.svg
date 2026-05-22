@@ -1,114 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="500" viewBox="0 0 760 500">
   <defs>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.5"/>
+    <linearGradient id="tb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="tbh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.21"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="ws" x="-8%" y="-8%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000" flood-opacity="0.55"/>
     </filter>
-    <linearGradient id="tile-border" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.04"/>
-    </linearGradient>
-    <linearGradient id="tile-border-hover" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.06"/>
-    </linearGradient>
   </defs>
 
-  <!-- Window -->
-  <rect width="800" height="520" rx="12" fill="#1c1c1e" filter="url(#shadow)"/>
+  <rect width="760" height="500" rx="12" fill="#1c1c1e" filter="url(#ws)"/>
 
   <!-- Title bar -->
-  <rect width="800" height="40" rx="12" fill="#252528"/>
-  <rect y="28" width="800" height="12" fill="#252528"/>
-  <rect y="39" width="800" height="1" fill="#3a3a3c"/>
+  <rect width="760" height="40" rx="12" fill="#242427"/>
+  <rect y="28" width="760" height="12" fill="#242427"/>
+  <line x1="0" y1="40" x2="760" y2="40" stroke="#38383c" stroke-width="1"/>
 
   <!-- Traffic lights -->
-  <circle cx="20" cy="20" r="6" fill="#ff5f57"/>
-  <circle cx="40" cy="20" r="6" fill="#febc2e"/>
-  <circle cx="60" cy="20" r="6" fill="#28c840"/>
+  <circle cx="20" cy="20" r="5.5" fill="#ff5f57"/>
+  <circle cx="38" cy="20" r="5.5" fill="#febc2e"/>
+  <circle cx="56" cy="20" r="5.5" fill="#28c840"/>
 
-  <!-- Toolbar label -->
-  <text x="400" y="25" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="13" fill="#8e8e93" font-weight="500">Repo Auditor</text>
+  <!-- Toolbar title -->
+  <text x="380" y="25" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="12.5" fill="#8e8e93" font-weight="500">Repo Auditor</text>
 
-  <!-- Content area -->
-  <rect x="0" y="40" width="800" height="480" fill="#1c1c1e"/>
+  <!-- Content -->
+  <rect x="0" y="40" width="760" height="460" fill="#1c1c1e"/>
 
-  <!-- Centered content -->
   <!-- Heading -->
-  <text x="400" y="145" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="17" fill="#f2f2f7" font-weight="600">Repo Auditor</text>
-  <text x="400" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="13" fill="#8e8e93">Audit before you make a repository public</text>
+  <text x="380" y="148" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display'" font-size="18" fill="#f2f2f7" font-weight="600">Repo Auditor</text>
+  <text x="380" y="170" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#8e8e93">Audit before you make a repository public</text>
 
-  <!-- Left tile: Local Repository -->
-  <rect x="155" y="195" width="218" height="200" rx="9" fill="#2c2c2e" fill-opacity="0.7"/>
-  <rect x="155" y="195" width="218" height="200" rx="9" fill="none" stroke="url(#tile-border)" stroke-width="1"/>
+  <!-- ── Left tile: Local Repository (normal) ── -->
+  <rect x="110" y="195" width="240" height="198" rx="9" fill="#2c2c2e" fill-opacity="0.75"/>
+  <rect x="110" y="195" width="240" height="198" rx="9" fill="none" stroke="url(#tb)" stroke-width="1"/>
 
-  <!-- Tile main row -->
-  <text x="173" y="226" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="13" fill="#f2f2f7" font-weight="600">Local Repository</text>
-  <text x="173" y="243" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="11" fill="#8e8e93">Choose a folder on your Mac</text>
-  <text x="355" y="226" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="11" fill="#48484a">→</text>
+  <text x="128" y="226" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#f2f2f7" font-weight="600">Local Repository</text>
+  <text x="128" y="244" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#8e8e93">Choose a folder on your Mac</text>
+  <text x="335" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont" font-size="13" fill="#48484a">›</text>
 
-  <!-- Divider -->
-  <rect x="155" y="260" width="218" height="0.5" fill="#48484a"/>
+  <line x1="110" y1="261" x2="350" y2="261" stroke="#3a3a3c" stroke-width="0.5"/>
 
-  <!-- Checks grid -->
-  <circle cx="175" cy="278" r="2.5" fill="#636366"/>
-  <text x="182" y="282" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Secrets &amp; tokens</text>
-  <circle cx="270" cy="278" r="2.5" fill="#636366"/>
-  <text x="277" y="282" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Git history</text>
+  <!-- checks 2-col grid -->
+  <circle cx="130" cy="278" r="2" fill="#48484a"/>
+  <text x="137" y="282" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Secrets &amp; tokens</text>
+  <circle cx="238" cy="278" r="2" fill="#48484a"/>
+  <text x="245" y="282" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Git history</text>
 
-  <circle cx="175" cy="296" r="2.5" fill="#636366"/>
-  <text x="182" y="300" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Large files</text>
-  <circle cx="270" cy="296" r="2.5" fill="#636366"/>
-  <text x="277" y="300" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Infra exposure</text>
+  <circle cx="130" cy="296" r="2" fill="#48484a"/>
+  <text x="137" y="300" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Large files</text>
+  <circle cx="238" cy="296" r="2" fill="#48484a"/>
+  <text x="245" y="300" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Infra exposure</text>
 
-  <circle cx="175" cy="314" r="2.5" fill="#636366"/>
-  <text x="182" y="318" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">CI / CD setup</text>
-  <circle cx="270" cy="314" r="2.5" fill="#636366"/>
-  <text x="277" y="318" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Risky files</text>
+  <circle cx="130" cy="314" r="2" fill="#48484a"/>
+  <text x="137" y="318" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">CI / CD setup</text>
+  <circle cx="238" cy="314" r="2" fill="#48484a"/>
+  <text x="245" y="318" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Risky files</text>
 
-  <circle cx="175" cy="332" r="2.5" fill="#636366"/>
-  <text x="182" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Commit authors</text>
-  <circle cx="270" cy="332" r="2.5" fill="#636366"/>
-  <text x="277" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">OSS readiness</text>
+  <circle cx="130" cy="332" r="2" fill="#48484a"/>
+  <text x="137" y="336" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Commit authors</text>
+  <circle cx="238" cy="332" r="2" fill="#48484a"/>
+  <text x="245" y="336" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">OSS readiness</text>
 
-  <!-- Right tile: GitHub (hovered state) -->
-  <rect x="383" y="195" width="218" height="200" rx="9" fill="#2c2c2e" fill-opacity="0.85"/>
-  <rect x="383" y="195" width="218" height="200" rx="9" fill="none" stroke="url(#tile-border-hover)" stroke-width="1"/>
-  <!-- Subtle hover bg -->
-  <rect x="383" y="195" width="218" height="200" rx="9" fill="#ffffff" fill-opacity="0.025"/>
+  <circle cx="130" cy="350" r="2" fill="#48484a"/>
+  <text x="137" y="354" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">License check</text>
+  <circle cx="238" cy="350" r="2" fill="#48484a"/>
+  <text x="245" y="354" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">README quality</text>
 
-  <text x="401" y="226" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="13" fill="#f2f2f7" font-weight="600">GitHub</text>
-  <text x="401" y="243" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="11" fill="#8e8e93">Sign in to browse repos</text>
-  <text x="583" y="226" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="12" fill="#636366">→</text>
+  <circle cx="130" cy="368" r="2" fill="#48484a"/>
+  <text x="137" y="372" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">npm metadata</text>
+  <circle cx="238" cy="368" r="2" fill="#48484a"/>
+  <text x="245" y="372" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Package audit</text>
 
-  <rect x="383" y="260" width="218" height="0.5" fill="#48484a"/>
+  <!-- ── Right tile: GitHub (hovered) ── -->
+  <rect x="410" y="195" width="240" height="198" rx="9" fill="#2c2c2e" fill-opacity="0.88"/>
+  <rect x="410" y="195" width="240" height="198" rx="9" fill="#fff" fill-opacity="0.03"/>
+  <rect x="410" y="195" width="240" height="198" rx="9" fill="none" stroke="url(#tbh)" stroke-width="1"/>
 
-  <circle cx="403" cy="278" r="2.5" fill="#636366"/>
-  <text x="410" y="282" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Browse all repos</text>
-  <circle cx="498" cy="278" r="2.5" fill="#636366"/>
-  <text x="505" y="282" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Clone &amp; scan</text>
+  <text x="428" y="226" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="13" fill="#f2f2f7" font-weight="600">GitHub</text>
+  <text x="428" y="244" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="11" fill="#8e8e93">Sign in to browse repos</text>
+  <text x="635" y="226" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont" font-size="13" fill="#636366">›</text>
 
-  <circle cx="403" cy="296" r="2.5" fill="#636366"/>
-  <text x="410" y="300" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Private repos</text>
-  <circle cx="498" cy="296" r="2.5" fill="#636366"/>
-  <text x="505" y="300" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">OAuth / gh CLI</text>
+  <line x1="410" y1="261" x2="650" y2="261" stroke="#3a3a3c" stroke-width="0.5"/>
 
-  <circle cx="403" cy="314" r="2.5" fill="#636366"/>
-  <text x="410" y="318" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Audit any repo</text>
-  <circle cx="498" cy="314" r="2.5" fill="#636366"/>
-  <text x="505" y="318" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">One-click scan</text>
+  <circle cx="430" cy="278" r="2" fill="#48484a"/>
+  <text x="437" y="282" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Browse all repos</text>
+  <circle cx="538" cy="278" r="2" fill="#48484a"/>
+  <text x="545" y="282" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Clone &amp; scan</text>
 
-  <circle cx="403" cy="332" r="2.5" fill="#636366"/>
-  <text x="410" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Secure clone</text>
-  <circle cx="498" cy="332" r="2.5" fill="#636366"/>
-  <text x="505" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93">Temp directory</text>
+  <circle cx="430" cy="296" r="2" fill="#48484a"/>
+  <text x="437" y="300" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Private repo support</text>
+  <circle cx="538" cy="296" r="2" fill="#48484a"/>
+  <text x="545" y="300" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">OAuth / gh CLI</text>
+
+  <circle cx="430" cy="314" r="2" fill="#48484a"/>
+  <text x="437" y="318" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">One-click audit</text>
+  <circle cx="538" cy="314" r="2" fill="#48484a"/>
+  <text x="545" y="318" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Secure temp clone</text>
+
+  <circle cx="430" cy="332" r="2" fill="#48484a"/>
+  <text x="437" y="336" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Markdown export</text>
+  <circle cx="538" cy="332" r="2" fill="#48484a"/>
+  <text x="545" y="336" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">All findings</text>
+
+  <circle cx="430" cy="350" r="2" fill="#48484a"/>
+  <text x="437" y="354" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Filters by category</text>
+  <circle cx="538" cy="350" r="2" fill="#48484a"/>
+  <text x="545" y="354" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Severity triage</text>
+
+  <circle cx="430" cy="368" r="2" fill="#48484a"/>
+  <text x="437" y="372" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">Remediation hints</text>
+  <circle cx="538" cy="368" r="2" fill="#48484a"/>
+  <text x="545" y="372" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10.5" fill="#8e8e93">CI integration</text>
 
   <!-- Keyboard hints -->
-  <rect x="327" y="418" width="40" height="16" rx="3" fill="#ffffff" fill-opacity="0.07"/>
-  <text x="347" y="430" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93" font-weight="500">⌘O</text>
-  <text x="371" y="430" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#636366">Local folder</text>
+  <rect x="298" y="419" width="36" height="15" rx="3" fill="#fff" fill-opacity="0.07"/>
+  <text x="316" y="430" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Mono'" font-size="10" fill="#8e8e93">⌘O</text>
+  <text x="338" y="430" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10" fill="#636366">Local folder</text>
 
-  <rect x="444" y="418" width="40" height="16" rx="3" fill="#ffffff" fill-opacity="0.07"/>
-  <text x="464" y="430" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#8e8e93" font-weight="500">⌘G</text>
-  <text x="488" y="430" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue'" font-size="10" fill="#636366">GitHub</text>
+  <rect x="430" y="419" width="36" height="15" rx="3" fill="#fff" fill-opacity="0.07"/>
+  <text x="448" y="430" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Mono'" font-size="10" fill="#8e8e93">⌘G</text>
+  <text x="470" y="430" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text'" font-size="10" fill="#636366">GitHub</text>
 </svg>

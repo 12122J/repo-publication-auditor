@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Usage: ./run [--rebuild]
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PRODUCT="RepoAuditorApp"
+BUNDLE="$ROOT/dist/Repo Auditor.app"
+BINARY="$BUNDLE/Contents/MacOS/$PRODUCT"
+
+needs_build() {
+    [[ ! -x "$BINARY" ]] && return 0
+    # Rebuild if any Swift source is newer than the binary
+    while IFS= read -r -d '' src; do
+        [[ "$src" -nt "$BINARY" ]] && return 0
+    done < <(find "$ROOT/Sources" -name "*.swift" -print0)
+    return 1
+}
+
+build() {
+    echo "Building…"
+    swift build --product "$PRODUCT" -c debug 2>&1 | grep -v "^Build complete" | grep -v "^$" || true
+    BIN_DIR="$(swift build --product "$PRODUCT" --show-bin-path 2>/dev/null)"
+
+    rm -rf "$BUNDLE"
+    mkdir -p "$BUNDLE/Contents/MacOS"
+    cp "$BIN_DIR/$PRODUCT" "$BINARY"
+    chmod +x "$BINARY"
+
+    cat > "$BUNDLE/Contents/Info.plist" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>CFBundleExecutable</key><string>$PRODUCT</string>
+  <key>CFBundleIdentifier</key><string>dev.repo-auditor.app</string>
+  <key>CFBundleName</key><string>Repo Auditor</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>LSMinimumSystemVersion</key><string>14.0</string>
+  <key>NSPrincipalClass</key><string>NSApplication</string>
+</dict>
+</plist>
+PLIST
+    echo "Build complete."
+}
+
+# Kill any running instance
+if pgrep -x "$PRODUCT" >/dev/null 2>&1; then
+    pkill -x "$PRODUCT"
+    sleep 0.3
+fi
+
+if [[ "${1:-}" == "--rebuild" ]] || needs_build; then
+    build
+else
+    echo "Nothing changed — launching existing build."
+fi
+
+open -n "$BUNDLE"
